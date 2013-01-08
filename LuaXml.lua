@@ -117,3 +117,4 @@ function find(var, tag, attributeKey,attributeValue)
     end
   end
 end
+return xml
