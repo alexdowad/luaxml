@@ -311,17 +311,7 @@ int Xml_eval(lua_State *L) {
 			else return lua_gettop(L);
 		}
 		// set metatable:
-		lua_newtable(L);
-		lua_pushliteral(L, "__index");
-		lua_getglobal(L, "xml");
-		lua_settable(L, -3);
-
-		lua_pushliteral(L, "__tostring"); // set __tostring metamethod
-		lua_getglobal(L, "xml");
-		lua_pushliteral(L,"str");
-		lua_gettable(L, -2);
-		lua_remove(L, -2);
-		lua_settable(L, -3);
+		luaL_getmetatable(L, "LuaXML.node");
 		lua_setmetatable(L, -2);
 
 		// parse tag and content:
@@ -434,6 +424,19 @@ int _EXPORT luaopen_LuaXML_lib (lua_State* L) {
 		{NULL, NULL}
 	};
 	luaL_newlib(L, funcs);
+
+	luaL_newmetatable(L, "LuaXML.node");
+	lua_pushliteral(L, "__index");
+	lua_pushvalue(L, -3);
+	lua_settable(L, -3);
+	lua_pop(L, 1);
+
+	// store metatable in xml.__metatable, so we can finish setting it up
+	// in LuaXml.lua
+	lua_pushliteral(L, "__metatable");
+	luaL_getmetatable(L, "LuaXML.node");
+	lua_settable(L, -3);
+
 	// register default codes:
 	if(!sv_code) {
 		sv_code=(char**)malloc(sv_code_capacity*sizeof(char*));

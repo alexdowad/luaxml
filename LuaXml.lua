@@ -75,6 +75,7 @@ function xml.str(var,indent,tagValue)
 	end
 end
 
+xml.__metatable.__tostring = xml.str
 
 -- saves a Lua var as xml file
 function xml.save(var,filename)
