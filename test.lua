@@ -1,4 +1,4 @@
-require('LuaXML')
+xml = require('LuaXml')
 
 -- load XML data from file "test.xml" into local table xfile
 local xfile = xml.load("test.xml")

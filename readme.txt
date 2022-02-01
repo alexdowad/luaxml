@@ -1,7 +1,7 @@
 LuaXML
 
 - a module that maps between Lua and XML without much ado
-version 1.7.2, 2009-09-06 by Gerald Franz, www.viremo.de
+version 1.8.0 (Lua 5.2), 2013-06-10 by Gerald Franz, eludi.net
 
 LuaXML provides a minimal set of functions for the processing of XML data in Lua. It offers a 
 very simple and natural mapping between the XML data format and Lua tables, which 
@@ -19,7 +19,7 @@ flavours of MS Windows, and MacOS X.
 Example
 
 -- import the LuaXML module
-require("LuaXML")
+xml = require("LuaXML")
 -- load XML data from file "test.xml" into local table xfile
 local xfile = xml.load("test.xml")
 -- search for substatement having the tag "scene"
@@ -46,21 +46,21 @@ Documentation
 
 LuaXML consists of the following functions:
 
-require("LuaXML")
-imports the LuaXML module. 
+xml = require("LuaXML")
+imports the LuaXML module as global object "xml".
 LuaXML consists of a lua file (LuaXML.lua) and normally a shared library (.dll/.so), although a static linking is possible as well. Both parts are imported by this call provided that they are found in Lua's package search path.
 
 function xml.new(arg)
 creates a new LuaXML object.
     * param arg (optional), (1) a table to be converted to be converted to a LuaXML object, or (2) the tag of the new LuaXML object
       Note that it is not mandatory to use this function in order to treat a Lua table as LuaXML object. Setting the metatable just allows the usage of a more object-oriented syntax (e.g., xmlvar:str() instead of xml.str(xmlvar) ). XML objects created by xml.load() or xml.eval() automatically offer the object-oriented syntax.
-	* Returns new LuaXML object
+    * Returns new LuaXML object
 
 function xml.append(var,tag)
 appends a new subordinate LuaXML object to an existing one, optionally sets tag.
-	* param var the parent LuaXML object
-	* param tag (optional) the tag of the appended LuaXML object
-	* Returns appended LuaXML object or nil in case of error
+    * param var the parent LuaXML object
+    * param tag (optional) the tag of the appended LuaXML object
+    * Returns appended LuaXML object or nil in case of error
 
 function xml.load(filename)
 loads XML data from a file and returns it as table
@@ -89,14 +89,14 @@ may be more self explanatory.
 
     * param var, the variable whose tag should be accessed, a LuaXML object
     * param tag (optional) the new tag to be set.
-	* Returns the current tag as string
+    * Returns the current tag as string
 
 function xml.str(var, indent, tag)
 converts any Lua var to an xml string.
 
     * param var, the variable to be converted, normally a table
     * param indent (optional) the current level of indentation for pretty output. Mainly for internal use.
-    * param tag	(optional) the tag to be used for a table without tag. Mainly for internal use.
+    * param tag    (optional) the tag to be used for a table without tag. Mainly for internal use.
     * Returns an XML string in case of success or nil.
 
 function xml.find(var, tag, attributeKey,attributeValue)
@@ -114,9 +114,9 @@ registers a custom code for the conversion between non-standard characters and X
     * param decoded the character (sequence) to be used within Lua.
     * param encoded the character entity to be used in XML.
     * By default, only the most basic entities are known to LuaXML (” & < > '). 
-	   ANSI codes above 127 are directly converted to the XML character codes 
-	   of the same number. If more character codes are needed, they can be 
-	   registered using this function.
+       ANSI codes above 127 are directly converted to the XML character codes
+       of the same number. If more character codes are needed, they can be
+       registered using this function.
 
 
 
@@ -126,7 +126,7 @@ LuaXML is licensed under the terms of the MIT license reproduced below,
 the same as Lua itself. This means that LuaXML is free software and can be
 used for both academic and commercial purposes at absolutely no cost.
 
-Copyright (C) 2007-2009 by Gerald Franz, www.viremo.de
+Copyright (C) 2007-2013 by Gerald Franz, eludi.net
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

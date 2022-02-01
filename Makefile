@@ -25,7 +25,7 @@ else
     
   else  # windows, MinGW
     LFLAGS =  -shared
-    LIBS          = $(LIBDIR) $(LIB) -llua51 -mconsole -s
+    LIBS          = $(LIBDIR) $(LIB) -llua52 -mconsole -s
     EXESUFFIX = .exe
     SHLIBSUFFIX = .dll
 

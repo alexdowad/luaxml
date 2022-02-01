@@ -1,5 +1,5 @@
 package = "LuaXML"
-version = "1.7.5-1"
+version = "1.8.0"
 source = {
    url = "git://github.com/alexdowad/luaxml",
    dir = '.'
@@ -21,7 +21,7 @@ preserved in a read/write cycle.
    maintainer = "alexinbeijing@gmail.com"
 }
 dependencies = {
-   "lua >= 5.1"
+   "lua >= 5.2"
 }
 build = {
    type = "builtin",

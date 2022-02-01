@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
 <XperiML version="2.0">
   <!--  application info -->
   <applicationInfo>
-    <string id="author">     S&#228;lly.Doe@t&#252;bingen.de </string>
+    <string id="author">     J&#228;ne.Roe@t&#252;bingen.com </string>
     <string id="version">    0.5.0                         </string>
     <string id="date">       2004-11-23 - 2006-08-18       </string>
-    <string id="shortDescr"> a demonstration application for LuaXML scripting </string>
+    <string id="shortDescr"> a demonstration application for XML&#10;Lua scripting </string>
     <string id="usage">      [ -i(ini.xml) ] </string>
+    <tag id="emptyAttr" attr="" />
   </applicationInfo>
 
-<!--  initialization of the window -->
+<!--  initialization of the glWindow -->
   <deviceWindow id="0" name="window" deviceContainer="input">
-    <string id="winTitle">   my window </string>
+    <string id="winTitle">   veLua </string>
     <float id="mouseRelative">     0 </float>
     <float id="mouseNeutral">    0.0 </float>
     <bool id="mouseVisible">       0 </bool>
@@ -23,7 +23,7 @@
     <int id="winSizeY">        600 </int>
     <floatArray id="bgColor"> 0.5 0.6 0.7 </floatArray>
 
-    <!-- 2d visualization / overlay initialization -->
+    <!-- 2d viewport / overlay initialization -->
     <overlay>
       <floatArray id="bgNormalColor"> 1.0 1.0 1.0 0.2 </floatArray>
       <floatArray id="fgNormalColor"> 1.0 0.0 1.0 0.7 </floatArray>
@@ -44,7 +44,7 @@
 
   
   <deviceGraphics id="0">
-    <!-- 3d visualization initialization -->
+    <!-- 3d viewport initialization -->
     <float id="nearClipping">  0.1 </float>
     <float id="farClipping">   2000 </float>
     <float id="frustumLeft">  -1.0 </float>
@@ -121,14 +121,6 @@
 
     <light id="0" enabled="1" position="-.5 -.75 1.0 0.0" ambient="0.3 0.3 0.3 1.0" diffuse="0.7 0.7 0.7 1.0" specular="1.0 1.0 1.0 1.0"/>
   </scene>
-
-	<cdata_test>
-		<chars><![CDATA[x<works>]]></chars>
-		<tagged><![CDATA[<works>]]></tagged>
-		<open><![CDATA[<]]></open>
-		<close><![CDATA[>]]></close>
-		<empty><![CDATA[]]></empty>
-	</cdata_test>
 
 </XperiML>
 
