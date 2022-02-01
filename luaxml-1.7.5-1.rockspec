@@ -1,7 +1,7 @@
 package = "LuaXML"
 version = "1.7.5-1"
 source = {
-   url = "git://github.com/LuaDist/luaxml",
+   url = "git://github.com/alexdowad/luaxml",
    dir = '.'
 }
 description = {
@@ -18,7 +18,7 @@ preserved in a read/write cycle.
    ]],
    homepage = "http://viremo.eludi.net/LuaXML/",
    license = "MIT/X11",
-   maintainer = "djerius@cfa.harvard.edu"
+   maintainer = "alexinbeijing@gmail.com"
 }
 dependencies = {
    "lua >= 5.1"
